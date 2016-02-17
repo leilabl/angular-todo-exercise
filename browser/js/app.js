@@ -7,19 +7,29 @@ app.controller('MainCtrl', function($scope) {
   $scope.items = [];
 
   //Creates an item object and adds it to the items array
-  $scope.addItem = function() {
+  $scope.addItem = function(newTask) {
     var listItem = {
-      //item data here
+      content: newTask,
+      complete: false
     }
 
     $scope.items.push(listItem)
+    // console.log($scope.items)
   }
 
 })
 
 app.directive('listItem', function() {
   return {
-
+    restrict: 'E',
+    templateUrl: '/templates/listItem.html',
+    scope: {
+      items: '='
+    },
+    link: function (scope) {
+      // angular.extend(scope);
+      scope.items = items
+    }
   }
 })
 

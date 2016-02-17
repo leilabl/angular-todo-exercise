@@ -7,11 +7,16 @@
     <script src="/js/app.js" defer></script>
 
   </head>
-  <body ng-app="app">
+  <body ng-app="app" ng-controller="MainCtrl">
     <h1 href="/">
       <span class="glyphicon glyphicon-pencil"></span>
       <span>   My Cool To-Do List</span>
     </h1>
+
+    <form class="form-inline text-center">
+      <input ng-model="newTask" class="form-control" placeholder="Enter new task">
+      <button ng-click="addItem(newTask)" class="btn btn-lg btn-success">+</button>
+    </form>
     <div class="row activities">
     </div>
 
@@ -20,6 +25,7 @@
         <h2> To Do </h2>
         <ul class="lists" id="todo-list">
         <!-- Your Directive Here -->
+        <list-item items></list-item>
         </ul>
       </div>
 
